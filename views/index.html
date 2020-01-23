@@ -60,7 +60,7 @@
   <h3> Customer information </h3>
 </div>
 <form>
-    <h4> Delivery information </h4>
+    <h4> Delivery information: </h4>
     <p> Fill in your details </p>
   <p>
       <label for="firstname">Full name</label><br>
@@ -78,6 +78,16 @@
       <label for="house">House</label><br>
       <input type="number" id="house" name="h" placeholder="House number" />
   </p>
+
+  <p>
+    <label for="payment">Payment method</label><br />
+    <select id="payment" name="pay">
+        <option selected = "selected">Klarna</option>
+        <option>Visa/Mastercard</option>
+        <option>Swish</option>
+        <option>Bill</option>
+    </select>
+</p>
 </form>
 </section>
 
