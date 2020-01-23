@@ -5,10 +5,15 @@ body {
     font-size: 16pt;
 }
 
-.contact {
-    color: #ff5500;
-}
-
 #allergy {
     font-weight: bold;
+}
+
+#burgers {
+  background-color: black;
+  color: white;
+}
+
+#customer{
+
 }
