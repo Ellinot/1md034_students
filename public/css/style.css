@@ -1,7 +1,6 @@
 @import url("reset.css");
-@import url("https://fonts.googleapis.com/css?family=Droid+Serif|Share+Tech+Mono");
-
+@import url("https://fonts.googleapis.com/css?family=Dosis|ZCOOL+QingKe+HuangYou&display=swap");
 body {
-    font-family: "Droid Serif", sans-serif;
+    font-family: 'Dosis', sans-serif;
     font-size: 14pt;
 }
