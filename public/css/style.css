@@ -4,3 +4,11 @@ body {
     font-family: 'Dosis', sans-serif;
     font-size: 16pt;
 }
+
+.contact {
+    color: #ff5500;
+}
+
+#allergy {
+    font-weight: bold;
+}
