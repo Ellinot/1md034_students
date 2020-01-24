@@ -3,6 +3,7 @@
 body {
     font-family: 'Dosis', sans-serif;
     font-size: 16pt;
+
 }
 
 #allergy {
@@ -16,4 +17,9 @@ body {
 
 #customer{
 
+}
+
+button:hover, input[type="submit"]{
+  background-color: #90EE90;
+  cursor:pointer;
 }
