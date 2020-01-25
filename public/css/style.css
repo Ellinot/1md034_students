@@ -19,7 +19,7 @@ body {
 
 }
 
-button:hover, input[type="submit"]{
+button:hover{
   background-color: #90EE90;
   cursor:pointer;
 }
