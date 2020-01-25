@@ -3,11 +3,11 @@
 body {
     font-family: 'Dosis', sans-serif;
     font-size: 16pt;
-
+    margin:0 auto;
 }
 
 #allergy {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 #burgers {
@@ -22,4 +22,9 @@ body {
 button:hover{
   background-color: #90EE90;
   cursor:pointer;
+}
+
+table{
+  width: 60%;
+  margin:0 auto;
 }
