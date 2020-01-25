@@ -13,10 +13,13 @@ body {
 #burgers {
   background-color: black;
   color: white;
+  border: 2px dashed white;
+  padding:1px 30px 15px; /*top right/left bottom*/
 }
 
 #customer{
-
+  border: 2px dashed black;
+  padding:1px 30px 15px;
 }
 
 button:hover{
