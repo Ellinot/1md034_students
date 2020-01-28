@@ -6,8 +6,14 @@ body {
     margin:0 auto;
 }
 
-h1{
-  font-size: 38pt;
+#welcome{
+  font-size: 46pt;
+  font-weight: bold;
+  position: absolute;
+  margin-top: -145pt;
+  margin-left: 40pt;
+
+/*  margin: -135pt 40pt;*/
 }
 
 h2{
@@ -31,6 +37,7 @@ td{
 #headerimage{
   opacity: 0.6;
   width: 100%;
+  height: 100%;
 }
 
 #allergy {
@@ -41,7 +48,8 @@ td{
   background-color: black;
   color: white;
   border: 2px dashed white;
-  padding:1px 30px 15px; /*top right/left bottom*/
+  padding: 15px 30px 15px; /*top right/left bottom*/
+  margin: 15px 15px 15px 15px; 	/*top right bottom left*/
 }
 
 #customer{
@@ -69,5 +77,6 @@ section{
 }
 
 header{
-  margin:15px;
+  margin: 15px 15px 0px 15px; 	/*top right bottom left*/
+  overflow:hidden;
 }
