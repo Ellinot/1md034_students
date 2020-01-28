@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+      <link rel="stylesheet" type="text/css" href="./css/reset.css">
       <link rel="stylesheet" type="text/css" href="./css/style.css">
         <title>Hamburglar Delight</title>
         <meta charset="utf-8"/>
@@ -8,8 +9,10 @@
 
     <body>
 <main>
+<header>
 <h1> Welcome to Hamburglar Delight </h1>
-<p> Fastest delivery in town </p>
+<img id = "headerimage" src="./img/bakgrund1.png" alt="Background">
+</header>
 <br />
 <section id="burgers">
   <h2> Burger selection </h2>
@@ -59,26 +62,29 @@
 </section>
 <section id= customer>
   <h3> Customer information </h3>
+  <br />
 </div>
 <form>
     <h4> Delivery information: </h4>
+    <br />
     <p> Fill in your details </p>
+    <br />
   <p>
       <label for="firstname">Full name</label><br>
       <input type="text" id="firstname" name="fn" required="required" placeholder="First- and Last name" />
-  </p>
+  </p><br />
   <p>
       <label for="email">E-mail</label><br>
       <input type="email" id="email" name="em" required="required" placeholder="E-mail address" />
-  </p>
+  </p><br />
   <p>
       <label for="street">Street</label><br>
       <input type="text" id="street" name="st" placeholder="Street name" />
-  </p>
+  </p><br />
   <p>
       <label for="house">House</label><br>
       <input type="number" id="house" name="h" placeholder="House number" />
-  </p>
+  </p><br />
 
   <p>
     <label for="payment">Payment method</label><br>
@@ -90,7 +96,7 @@
   </p>
 </select>
         <p>
-            <label for="gender">Gender</label><br>
+            <br /><label for="gender">Gender</label><br><br />
             <input type="radio" id="gender" name="g" placeholder="Gender">Male</input>
             <input type="radio" id="gender" name="g" placeholder="Gender">Female</input>
             <input type="radio" id="gender" name="g" placeholder="Gender">Non-Binary</input>
