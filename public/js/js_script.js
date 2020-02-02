@@ -18,7 +18,7 @@ let burger4 = new menuItem('Cheese burger', 'Mozarella, Pickled onion, cucumber 
 let burger5 = new menuItem('Spicy burger', 'jalapeños, chili, garlic \nSourdough bread', '(lactose free)');
 
 
-let img1 = document.getElementById("./img/burgler1.png");
+let img1 = document.getElementById('./img/burgler1.png');
 
 
 console.log(burger1.information(), burger2.information(), burger3.information(), burger4.information(), burger5.information(), '\n' + img1);
