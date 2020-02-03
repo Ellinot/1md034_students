@@ -21,4 +21,26 @@ let burger5 = new menuItem('Spicy burger', 'jalapeños, chili, garlic \nSourdoug
 let img1 = document.getElementById('./img/burgler1.png');
 
 
-console.log(burger1.information(), burger2.information(), burger3.information(), burger4.information(), burger5.information(), '\n' + img1);
+/*console.log(burger1.information(), burger2.information(), burger3.information(), burger4.information(), burger5.information(), '\n' + img1); */
+
+document.getElementById("myID").innerHTML = "Välj en burgare";
+
+var burgerOne = document.createElement('p');
+burgerOne.innerHTML = burger1.information();
+document.getElementById("myID").appendChild(burgerOne);
+
+var burgerTwo = document.createElement('p');
+burgerTwo.innerHTML = burger2.information();
+document.getElementById("myID").appendChild(burgerTwo);
+
+var burgerThree = document.createElement('p');
+burgerThree.innerHTML = burger3.information();
+document.getElementById("myID").appendChild(burgerThree);
+
+var burgerFour = document.createElement('p');
+burgerFour.innerHTML = burger4.information();
+document.getElementById("myID").appendChild(burgerFour);
+
+var burgerFive = document.createElement('p');
+burgerFive.innerHTML = burger5.information();
+document.getElementById("myID").appendChild(burgerFive);
