@@ -21,26 +21,33 @@ let burger5 = new menuItem('Spicy burger', 'jalapeños, chili, garlic \nSourdoug
 let img1 = document.getElementById('./img/burgler1.png');
 
 
-/*console.log(burger1.information(), burger2.information(), burger3.information(), burger4.information(), burger5.information(), '\n' + img1); */
 
+var menu = [burger1, burger2, burger3, burger4, burger5];
+
+var id = document.getElementById("menu");
+
+for (var burger of menu){
+let listItem = document.createElement("li");
+
+if(burger.gluten == 'true'){
+listItem.innerHTML = burger.information() + ' ' + "contains gluten";
+}
+else if (burger.gluten == 'false'){
+listItem.innerHTML = burger.information();
+}
+else if (burger.lactose == 'true') {
+listItem.innerHTML = burger.information() + ' ' + "contains lactose";
+}
+else {
+listItem.innerHTML = burger.information();
+}
+id.appendChild(listItem);
+}
+
+
+/*
 document.getElementById("myID").innerHTML = "Välj en burgare";
 
 var burgerOne = document.createElement('p');
 burgerOne.innerHTML = burger1.information();
-document.getElementById("myID").appendChild(burgerOne);
-
-var burgerTwo = document.createElement('p');
-burgerTwo.innerHTML = burger2.information();
-document.getElementById("myID").appendChild(burgerTwo);
-
-var burgerThree = document.createElement('p');
-burgerThree.innerHTML = burger3.information();
-document.getElementById("myID").appendChild(burgerThree);
-
-var burgerFour = document.createElement('p');
-burgerFour.innerHTML = burger4.information();
-document.getElementById("myID").appendChild(burgerFour);
-
-var burgerFive = document.createElement('p');
-burgerFive.innerHTML = burger5.information();
-document.getElementById("myID").appendChild(burgerFive);
+document.getElementById("myID").appendChild(burgerOne); */

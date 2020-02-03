@@ -1,12 +1,21 @@
 document.getElementById("test").innerHTML = "Burger selection";
 
+/*<div id = "burger">
+     <div v-for="burger in burgers">
+        {{ burger.information() }}
+        <span v-if="burger.gluten == 'true'">
+        Contains gluten
+        </span>
+        <span v-if="burger.lactose == 'true'">
+        Contains lactose
+        </span>
+     </div>
+</div> */
+
+var menu = [burger1, burger2, burger3, burger4, burger5];
 const vm = new Vue({
-  el: '#myID',
+  el: '#burger',
   data: {
-    burgerString1: burger1,
-    burgerString2: burger2,
-    burgerString3: burger3,
-    burgerString4: burger4,
-    burgerString5: burger5
+    burgers: menu
   },
 })
