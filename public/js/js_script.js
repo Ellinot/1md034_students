@@ -7,15 +7,15 @@ this.information = function() {
 };
 }
 
-let burger1 = new menuItem('Original burger', 'Cheddar cheese \nRoman lettuce, tomatoe and onion \nSourdough bread', '(gluten free)');
+let burger1 = new menuItem('Original burger', 'Cheddar cheese \nRoman lettuce, tomatoe and onion \nSourdough bread', 'false', 'true');
 
-let burger2 = new menuItem('Vegan burger', 'Vegan cheddar \nLettuce, tomatoe and red cabbage \nRhye bread', '(lactose free)');
+let burger2 = new menuItem('Vegan burger', 'Vegan cheddar \nLettuce, tomatoe and red cabbage \nRhye bread', 'false', 'false');
 
-let burger3 = new menuItem('Mushroom burger', 'Cheddar cheese, Portabello, spinach & grilled tomatoe \nWheat bread', '(contains gluten)');
+let burger3 = new menuItem('Mushroom burger', 'Cheddar cheese, Portabello, spinach & grilled tomatoe \nWheat bread', 'true', 'true');
 
-let burger4 = new menuItem('Cheese burger', 'Mozarella, Pickled onion, cucumber \nWheat bread', '(contains gluten)');
+let burger4 = new menuItem('Cheese burger', 'Mozarella, Pickled onion, cucumber \nWheat bread', 'true', 'false');
 
-let burger5 = new menuItem('Spicy burger', 'jalapeños, chili, garlic \nSourdough bread', '(lactose free)');
+let burger5 = new menuItem('Spicy burger', 'jalapeños, chili, garlic \nSourdough bread', 'false', 'false');
 
 
 let img1 = document.getElementById('./img/burgler1.png');
