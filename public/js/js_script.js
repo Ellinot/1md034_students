@@ -74,4 +74,4 @@ list.appendChild(containsLactose).style.fontStyle = "italic";
 
 document.getElementById("grid").appendChild(box);
 
-}
+} 
