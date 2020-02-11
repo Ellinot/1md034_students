@@ -1,4 +1,4 @@
-function menuItem(name, img, ingredients, gluten, lactose, kcal){
+/*function menuItem(name, img, ingredients, gluten, lactose, kcal){
 this.name = name; // The this keyword refers to the object itself
 this.img = img;
 this.ingredients = ingredients;
@@ -12,6 +12,8 @@ this.information = function() {
 };
 }
 
+
+
 let burger1 = new menuItem('Original burger', './img/burgler1.png', 'Cheddar cheese \nRoman lettuce, onion \n,Sourdough bread', false, true, 'kcal: 2200');
 
 let burger2 = new menuItem('Vegan burger', './img/burgler2.png', 'Vegan cheddar \nLettuce, red cabbage \n,Rhye bread', false, false, 'kCal: 790');
@@ -22,9 +24,13 @@ let burger4 = new menuItem('Cheese burger', './img/burgler4.png', 'Mozarella, Pi
 
 let burger5 = new menuItem('Spicy burger', './img/burgler6.png', 'jalapeños, chili, garlic, tortilla \n,Sourdough bread', false, true, 'kCal: 2400');
 
-let burger6 = new menuItem('Green burger', './img/burgler5.png', 'Cheddar cheese, vegetables, \n, Wheat bread', false, false, 'kCal: 1200');
+let burger6 = new menuItem('Green burger', './img/burgler5.png', 'Cheddar cheese, vegetables, \n, Wheat bread', false, false, 'kCal: 1200'); *
 
 var menu = [burger1, burger2, burger3, burger4, burger5, burger6];
+*/
+
+
+
 /*
 var id = document.getElementById("menu");
 
