@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-      <script src="js/vue_script.js"></script>
-      <script src="https://vuejs.org/js/vue.js"></script>
       <script src="js/js_script.js" defer></script>
+      <script src="https://vuejs.org/js/vue.js"></script>
+      <script src="js/vue_script.js" defer></script>
+
       <meta charset="utf-8"/>
       <meta name = "viewport" content= "width-device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="./css/reset.css">
       <link rel="stylesheet" type="text/css" href="./css/style.css">
+
 
         <title>Hamburglar Delight</title>
     </head>
@@ -22,15 +24,31 @@
 </header>
   <main>
 
+    <div id = "burgers">
+      <h2> Burger selection </h2>
+      <div id = "grid" class = "grid">
+         <div v-for="burger in burgers">
+          <div id = "burger-name">  {{ burger.name }} </div>
+          <img v-bind:src = burger.img />
+          <ul>
+            <li> {{burger.ingredients}}</li>
+              <li>{{burger.kcal}}</<li>
+                <li v-if = "burger.gluten && !burger.lactose"><span style = "font-style:italic"> Contains gluten </span></li>
+                <li v-if = "burger.lactose && !burger.gluten"><span style = "font-style:italic"> Contains lactose </span></li>
+                <li v-if = "burger.lactose && burger.gluten"><span style = "font-style:italic"> Contains gluten & lactose </span></li>
+          </ul>
+         </div>
+    </div>
+  </div>
 
-<div id="burgers">
+<!--<div id="burgers">
   <h2> Burger selection </h2>
 
   <div id = "grid" class = "grid">
   </div>
 
 </div>
-
+-->
 
 <section class = "customer">
 <div>

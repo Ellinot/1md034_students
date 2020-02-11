@@ -3,7 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=B612&display=swap');
 
 body {
-    /*font-family: 'Dosis', sans-serif;*/
+    /*font-family: 'Dosis', sans-serif; */
     font-family: 'B612', sans-serif;
     font-size: 150%;
     margin:0 auto;
@@ -56,8 +56,9 @@ h4{
   margin-top:2em;
 }
 
-.burger-name{
-  font-size: 1.2em;
+#burger-name{
+  font-size: 1.5em;
+  font-weight: bold;
   text-align:center;
   white-space: nowrap;
   margin: 1em 1.1em 1em 0em;
@@ -93,7 +94,7 @@ h4{
   display: block;
   margin: 1em auto;
   align-content: center;
-  height: 57%;
+  height: 50%;
 }
 
 
@@ -103,8 +104,12 @@ h4{
 
  ul {
    list-style-type: square;
+   margin: 0em 1em 3em;
+ }
 
-   margin: 1em
+ li {
+   font-size: 1.2em;
+   margin: 0em 1em 0.3em;
  }
 
 
@@ -127,7 +132,7 @@ button:hover{
 }
 
 button{
-  margin: 1em 1.7em 1.3em;
+  margin: 3em 1em 0.1em;
   border-radius: 10px; /*rounded corners*/
   border: 2px dashed #4CAF50;
   width: 15em;

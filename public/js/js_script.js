@@ -25,7 +25,7 @@ let burger5 = new menuItem('Spicy burger', './img/burgler6.png', 'jalapeños, ch
 let burger6 = new menuItem('Green burger', './img/burgler5.png', 'Cheddar cheese, vegetables, \n, Wheat bread', false, false, 'kCal: 1200');
 
 var menu = [burger1, burger2, burger3, burger4, burger5, burger6];
-
+/*
 var id = document.getElementById("menu");
 
 for (var burger of menu){
@@ -74,4 +74,4 @@ list.appendChild(containsLactose).style.fontStyle = "italic";
 
 document.getElementById("grid").appendChild(box);
 
-} 
+} */
