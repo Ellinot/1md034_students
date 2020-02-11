@@ -3,7 +3,7 @@
     <head>
       <script src="js/vue_script.js"></script>
       <script src="https://vuejs.org/js/vue.js"></script>
-      <script src="js/js_script.js"></script>
+      <script src="js/js_script.js" defer></script>
       <meta charset="utf-8"/>
       <meta name = "viewport" content= "width-device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="./css/reset.css">
@@ -13,54 +13,26 @@
     </head>
 
     <body>
-<main>
+
 
 <header id = "test">
+
 <img id = "headerimage" src="./img/bakgrund1.png" alt="Background">
 <h1> Welcome to Hamburglar Delight</h1>
 </header>
-
-<section id="burgers">
+  <main>
+<div id="burgers">
   <h2> Burger selection </h2>
-
-<section id="burger-selection">
-
-  <div class="burger a">
-     <section class = "burger-name" >Original burglar</section>
-     <img id="img1" src="./img/burgler1.png" alt="Original burger">
-      <section class = "burger-info"> <ul>
-       <li>Cheddar cheese</li>
-       <li>Roman lettuce, tomatoe and onion</li>
-       <li>Sourdough bread <span id="allergy">(gluten free)</span></li>
-     </ul> </section>
+<div class id ="center" style = "vertical-align:middle">
   </div>
 
-
-  <div class="burger b">
-    <section class= "burger-name">Vegan burglar</section>
-    <img src="./img/burgler2.png" alt="Vegan burger">
-  <section class = "burger-info"> <ul>
-      <li>Vegan cheddar</li>
-      <li>Lettuce, tomatoe and red cabbage</li>
-      <li>Rhye bread <span id="allergy">(gluten free) </span></li>
-    </ul> </section>
+  <div id = "grid" class = "grid">
   </div>
 
-  <div class="burger c">
-    <section class = "burger-name">Mushroom blooper</section>
-    <img src="./img/burgler3.png" alt="Mushroom burger">
-      <section class = "burger-info"><ul>
-        <li>Cheddar cheese</li>
-        <li>Portabello, spinach & grilled tomatoe </li>
-        <li>Wheat bread </li>
-      </ul></section>
-  </div>
+</div>
 
-</section>
-</section>
-
-<div class = "background">
-<section id= "customer">
+<section class = "background">
+<div class= "customer">
   <h3> Customer information </h3>
   <br />
 <form>
@@ -103,10 +75,13 @@
         </p>
 
 </form>
-</section>
 </div>
 
-  <button type="submit"><img src="./img/deliButton.png"/> <h3>Place my order!</h3></button>
+<button type="submit"><img src="./img/deliButton.png"/> <h3>Place my order!</h3></button>
+
+</section>
+
+
 <main/>
 
 <hr>
