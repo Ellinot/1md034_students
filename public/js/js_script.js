@@ -1,3 +1,76 @@
+
+
+/*answers.push("hej");
+answers.push("doj");
+
+var name = document.getElementById("firstname").value;
+answers.push(name);
+
+console.log(answers[0]);
+console.log(answers[1]);
+console.log(answers[2]);
+console.log((answers).length);
+
+document.getElementById("order-button").addEventListener("click", buttonClicked);
+
+function buttonClicked() {
+  console.log("Button clicked!");
+} */
+
+function validInput() {
+var answers = [];
+var name = document.getElementById("firstname").value;
+var email = document.getElementById("email").value.indexOf("@");
+var street = document.getElementById("street").value;
+var house = document.getElementById("house").value;
+submitOK = "true";
+
+if (name.length > 10) {
+  alert("The name may have no more than 10 characters");
+  submitOK = "false";
+}
+
+if (email == -1) {
+  alert("Not a valid e-mail!");
+  submitOK = "false";
+}
+
+if (isNaN(street) || street < 1) {
+  alert("The street number must be a number greater than 0");
+  submitOK = "false";
+}
+
+if (isNaN(house) || house < 1) {
+  alert("The house number must be a number greater than 0");
+  submitOK = "false";
+}
+
+if (submitOK == "false") {
+  return false;
+}
+answers.push(name);
+answers.push(email);
+answers.push(street);
+answers.push(house);
+console.log(answers[1]);
+console.log((answers).length);
+}
+console.log(validInput);
+
+
+
+
+
+
+
+
+var answerArray=[document.getElementById('firstname').value, document.getElementById('email').value, document.getElementById('street').value, document.querySelector("input[name=gender]:checked").value]
+//document.querySelector("input[name=gender]:checked").value
+
+
+
+console.log(answerArray);
+
 /*function menuItem(name, img, ingredients, gluten, lactose, kcal){
 this.name = name; // The this keyword refers to the object itself
 this.img = img;
