@@ -1,12 +1,9 @@
-
-
 /*answers.push("hej");
 answers.push("doj");
 
 var name = document.getElementById("firstname").value;
 answers.push(name);
 
-console.log(answers[0]);
 console.log(answers[1]);
 console.log(answers[2]);
 console.log((answers).length);
@@ -15,7 +12,7 @@ document.getElementById("order-button").addEventListener("click", buttonClicked)
 
 function buttonClicked() {
   console.log("Button clicked!");
-} */
+}
 
 function validInput() {
 var answers = [];
@@ -57,19 +54,11 @@ console.log((answers).length);
 }
 console.log(validInput);
 
-
-
-
-
-
-
-
 var answerArray=[document.getElementById('firstname').value, document.getElementById('email').value, document.getElementById('street').value, document.querySelector("input[name=gender]:checked").value]
+*/
 //document.querySelector("input[name=gender]:checked").value
 
-
-
-console.log(answerArray);
+//console.log(answerArray);
 
 /*function menuItem(name, img, ingredients, gluten, lactose, kcal){
 this.name = name; // The this keyword refers to the object itself

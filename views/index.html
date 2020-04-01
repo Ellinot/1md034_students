@@ -25,7 +25,7 @@
 <h1> Welcome to Hamburglar Delight</h1>
 </header>
   <main>
-
+<div id="wrapper">
     <div id = "burgers">
       <h2> Burger selection </h2>
       <div id = "grid" class = "grid">
@@ -38,41 +38,46 @@
                 <li v-if = "burger.gluten && !burger.lactose"><span style = "font-style:italic"> Contains gluten </span></li>
                 <li v-if = "burger.lactose && !burger.gluten"><span style = "font-style:italic"> Contains lactose </span></li>
                 <li v-if = "burger.lactose && burger.gluten"><span style = "font-style:italic"> Contains gluten & lactose </span></li>
+                <br/>
+                <input type="checkbox" v-bind:id="burger.name" v-bind:value="burger.name" v-model="burgerChoice">Choose burger</input>
           </ul>
+
          </div>
     </div>
-  </div>
+      </div>
 
 
-<section class = "customer">
+
+<section class = "customer" id= "order">
 <div>
-  <h3> Customer information </h3>
+  <h3> Choose your favourites<img src="./img/arrowblink.gif" width = "55em"/>  and place order! </h3>
   <br />
-<form>
-    <h4> Delivery information: </h4>
-    <br />
-    <p> Fill in your details </p>
+
+    <h4> Order details </h4>
+
     <br />
   <p>
-      <label for="firstname">Full name</label><br>
-      <input type="text" id="firstname" name="fn" required="required" placeholder="First- and Last name" />
+
+  <form v-on:submit.prevent="viewOrder">
+      <label for="name">Full name</label><br>
+      <input v-model = "name" type="text" id="name" name="fn" required="required" placeholder="First- and Last name" />
   </p><br />
   <p>
       <label for="email">E-mail</label><br>
-      <input type="email" id="email" name="em" required="required" placeholder="E-mail address" />
+      <input v-model = "email" type="email" id="email" name="em" required="required" placeholder="E-mail address" />
   </p><br />
   <p>
       <label for="street">Street</label><br>
-      <input type="text" id="street" name="st" placeholder="Street name" />
+      <input v-model = "street" type="text" id="street" name="st" required="required" placeholder="Street name" />
   </p><br />
   <p>
-      <label for="house">House</label><br>
-      <input type="number" id="house" name="h" placeholder="House number" />
+      <label for="house">House number</label><br>
+      <input v-model = "house" type="number" id="house" name="h" required="required" placeholder="House number" />
   </p><br />
 
   <p>
-    <label for="payment">Payment method</label><br>
-    <select id="payment" name="pay">
+    <label for="payment" required="required">Payment method</label><br>
+    <select v-model = "payment" id="payment" name="pay">
         <option selected = "selected">Klarna</option>
         <option>Visa/Mastercard</option>
         <option>Swish</option>
@@ -80,17 +85,30 @@
   </p>
 </select>
         <p>
-            <br /><label for="gender">Gender</label><br><br />
-            <input type="radio" id="gender" name="gender" placeholder="Gender">Male</input>
-            <input type="radio" id="gender" name="gender" placeholder="Gender">Female</input>
-            <input type="radio" id="gender" name="gender" placeholder="Gender">Non-Binary</input>
-            <input type="radio" checked="checked" id="gender" name="gender" placeholder="Gender">Undisclosed</input>
+            <br /><label for="gender" required="required">Gender</label><br><br />
+            <input type="radio" v-model="gender" id="gender" name="gender" placeholder="Gender" value = "Male">Male</input>
+            <input type="radio" v-model="gender" id="gender" name="gender" placeholder="Gender" value = "Female">Female</input>
+            <input type="radio" v-model="gender" checked="checked" id="gender" name="gender" placeholder="Gender" value = "Undisclosed">Undisclosed</input>
         </p>
 
+<button id = "order-button" type="submit"><img src="./img/deliButton.png"/> <h3>Place my order!</h3></button>
 </form>
+
+<div v-if="!orderHidden" class = "order-details">
+<h5> Order confirmation </h5> <br/>
+  <p>Full name: {{ name }}</p> <br/>
+  <p>E-mail: {{ email }}</p> <br/>
+  <p>Street: {{ street }}</p> <br/>
+  <p>House: {{ house }}</p> <br/>
+  <p>Payment method: {{ payment }}</p> <br/>
+  <p>Gender: {{ gender }}</p> <br/>
+  <p>Your burger choice: {{ burgerChoice }}</p>
+  <br/>
 </div>
 
-<button id = "order-button" type="submit"><img src="./img/deliButton.png"/> <h3>Place my order!</h3></button>
+</div>
+</div>
+
 
 </section>
 

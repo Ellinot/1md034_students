@@ -103,7 +103,7 @@ h4{
  }
 
  ul {
-   list-style-type: square;
+   list-style-type:circle;
    margin: 0em 1em 3em;
  }
 
@@ -156,6 +156,18 @@ footer{
 #payment{
   margin: 1em 0em 1em;
   font-size: 0.7em;
+}
+
+
+.order-details {
+margin: 2em 0em 2em;
+border: 0.05em solid lightgreen;
+background-color: white;
+width: 20em;
+}
+
+h5{
+  font-size: 1.3em;
 }
 
 
