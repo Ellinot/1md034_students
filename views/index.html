@@ -5,6 +5,7 @@
       <meta name = "viewport" content= "width-device-width, initial-scale=1.0">
       <link rel="stylesheet" type="text/css" href="./css/reset.css">
       <link rel="stylesheet" type="text/css" href="./css/style.css">
+      <script src="/socket.io/socket.io.js" defer></script>
       <script type="text/javascript" src="js/menu.js"></script>
       <script src="js/js_script.js" defer></script>
       <script src="https://vuejs.org/js/vue.js"></script>
@@ -39,7 +40,7 @@
                 <li v-if = "burger.lactose && !burger.gluten"><span style = "font-style:italic"> Contains lactose </span></li>
                 <li v-if = "burger.lactose && burger.gluten"><span style = "font-style:italic"> Contains gluten & lactose </span></li>
                 <br/>
-                <input type="checkbox" v-bind:id="burger.name" v-bind:value="burger.name" v-model="burgerChoice">Choose burger</input>
+                <input type="checkbox" v-bind:id="burger.name" v-bind:value="burger.name" v-model="orders">Choose burger</input>
           </ul>
 
          </div>
@@ -66,14 +67,14 @@
       <label for="email">E-mail</label><br>
       <input v-model = "email" type="email" id="email" name="em" required="required" placeholder="E-mail address" />
   </p><br />
-  <p>
+  <!-- <p>
       <label for="street">Street</label><br>
       <input v-model = "street" type="text" id="street" name="st" required="required" placeholder="Street name" />
   </p><br />
   <p>
       <label for="house">House number</label><br>
       <input v-model = "house" type="number" id="house" name="h" required="required" placeholder="House number" />
-  </p><br />
+  </p><br /> -->
 
   <p>
     <label for="payment" required="required">Payment method</label><br>
@@ -89,7 +90,21 @@
             <input type="radio" v-model="gender" id="gender" name="gender" placeholder="Gender" value = "Male">Male</input>
             <input type="radio" v-model="gender" id="gender" name="gender" placeholder="Gender" value = "Female">Female</input>
             <input type="radio" v-model="gender" checked="checked" id="gender" name="gender" placeholder="Gender" value = "Undisclosed">Undisclosed</input>
-        </p>
+        </p> </br> </br>
+
+<p>Adress:</p> </br>
+
+<p> Please click your destination on the map </p>
+<div class="view-box">
+        <div id="dots" v-on:click="addOrder">
+            <div
+              v-for="(order, key) in orders"
+              v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+              {{key}}
+            </div>
+        </div>
+</div>
+
 
 <button id = "order-button" type="submit"><img src="./img/deliButton.png"/> <h3>Place my order!</h3></button>
 </form>
@@ -98,13 +113,32 @@
 <h5> Order confirmation </h5> <br/>
   <p>Full name: {{ name }}</p> <br/>
   <p>E-mail: {{ email }}</p> <br/>
-  <p>Street: {{ street }}</p> <br/>
-  <p>House: {{ house }}</p> <br/>
+  <!--<p>Street: {{ street }}</p> <br/>
+  <p>House: {{ house }}</p> <br/> -->
   <p>Payment method: {{ payment }}</p> <br/>
-  <p>Gender: {{ gender }}</p> <br/>
-  <p>Your burger choice: {{ burgerChoice }}</p>
+  <p>Your burger choice: {{ orders }}</p>
+
   <br/>
+  <!--
+  <div id="orderList">
+    <div v-for="(order, key) in orders">
+      #{{ key }}: {{ order.orderItems.join(", ") }}
+    </div>
+  </div> -->
+  
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </div>
 </div>
