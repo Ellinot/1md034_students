@@ -13,7 +13,6 @@ const socket = io();
 const vm = new Vue ({
   el: '#wrapper',
   data: {
-    orders: {},
     burgers: food,
     name: "",
     email: "",
@@ -21,8 +20,9 @@ const vm = new Vue ({
     house: "",
     payment: "",
     gender:"",
-    //burgerChoice: [],
-    orderHidden: true
+    burgerChoice: [],
+    orderHidden: true,
+    orders: {}
   },
 
 

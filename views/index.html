@@ -40,7 +40,7 @@
                 <li v-if = "burger.lactose && !burger.gluten"><span style = "font-style:italic"> Contains lactose </span></li>
                 <li v-if = "burger.lactose && burger.gluten"><span style = "font-style:italic"> Contains gluten & lactose </span></li>
                 <br/>
-                <input type="checkbox" v-bind:id="burger.name" v-bind:value="burger.name" v-model="orders">Choose burger</input>
+                <input type="checkbox" v-bind:id="burger.name" v-bind:value="burger.name" v-model="burgerChoice">Choose burger</input>
           </ul>
 
          </div>
@@ -113,19 +113,16 @@
 <h5> Order confirmation </h5> <br/>
   <p>Full name: {{ name }}</p> <br/>
   <p>E-mail: {{ email }}</p> <br/>
-  <!--<p>Street: {{ street }}</p> <br/>
-  <p>House: {{ house }}</p> <br/> -->
   <p>Payment method: {{ payment }}</p> <br/>
-  <p>Your burger choice: {{ orders }}</p>
-
-  <br/>
-  <!--
+  <p>Your burger choice:</p>
   <div id="orderList">
     <div v-for="(order, key) in orders">
-      #{{ key }}: {{ order.orderItems.join(", ") }}
+      {{ key }}: {{ order.orderItems.join(", ") }}
     </div>
-  </div> -->
-  
+  </div>
+
+  <br/>
+
 </div>
 
 
