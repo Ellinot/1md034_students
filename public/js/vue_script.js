@@ -13,7 +13,7 @@ const vm = new Vue ({
     gender:"",
     orderHidden: true,
     orders: {},
-    burgerArr: null,
+    burgerArr: [],
     orderId: 1,
   },
 
@@ -27,45 +27,37 @@ const vm = new Vue ({
 
     getDeliveryLocation: function (burgerArr){
       var deliveryLocations=[];
-      for(i = 0; i < burgerArr.length; i++) {
+      for(var i = 0; i < burgerArr.length; i++) {
         deliveryLocations[i+1] = burgerArr[i];
       }
       return deliveryLocations;
     },
 
-/*
-    orderList: function() {
-          let burgerArr=[]
-
-          if(document.querySelector("input[name=burgerCheck]:checked") == null){
-            alert("You must choose a burger to place an order!");
-          }
-
-          else{
-            var burgers = document.getElementsByName('burgerCheck');
-            for(i = 0; i < burgers.length; i++) {
-              if(burgers[i].checked) {
-                burgerArr[burgerArr.length] = burgers[i].value
-              }
-            }
-            return burgerArr;
-          }
-          return null;
-        }, */
 
     addOrder: function(event) {
-      this.burgerArr = orderList();
 
-      socket.emit('addOrder', {
-        orderId: this.orderId,
-        details: this.orders[0].details,
-        customerInfo: [this.name, this.email, this.payment],
-        orderItems: this.getDeliveryLocation(this.burgerArr),
-        orderInfo: [this.burgerArr[0], this.burgerArr[1], this.burgerArr[2], this.burgerArr[3], this.burgerArr[4]],
-      });
-      this.orderId += 1;
+      if(document.querySelector("input[name=burgerCheck]:checked") == null){
+        alert("You must choose a burger to place an order!");
+      }
+
+      else{
+        var burgers = document.getElementsByName('burgerCheck');
+        this.burgerArr = [];
+        for(var i = 0; i < burgers.length; i++) {
+          if(burgers[i].checked) {
+            this.burgerArr[this.burgerArr.length] = burgers[i].value
+          }
+        }
+        socket.emit('addOrder', {
+          orderId: this.orderId,
+          details: this.orders[0].details,
+          customerInfo: [this.name, this.email, this.payment],
+          orderItems: this.getDeliveryLocation(this.burgerArr),
+          orderInfo: [this.burgerArr[0], this.burgerArr[1], this.burgerArr[2], this.burgerArr[3], this.burgerArr[4]],
+        });
+        this.orderId += 1;
+      }
     },
-
 
 
     displayOrder: function(event) {
@@ -78,7 +70,6 @@ const vm = new Vue ({
         y: event.clientY - 10 - offset.y,
       }});
     }
-
 
   }
 })

@@ -11,7 +11,6 @@
   <script src="https://vuejs.org/js/vue.js"></script>
   <script src="js/vue_script.js" defer></script>
 
-
   <title>Hamburglar Delight</title>
 </head>
 
@@ -31,8 +30,8 @@
             <div id = "burger-name">  {{ burger.name }} </div>
             <img v-bind:src = burger.img />
             <ul>
-              <li> {{burger.ingredients}}</li>
-              <li>{{burger.kCal}}</<li>
+              <li> {{burger.ingredients}} </li>
+              <li> {{burger.kCal}} </<li>
                 <li v-if = "burger.gluten && !burger.lactose"><span style = "font-style:italic"> Contains gluten </span></li>
                 <li v-if = "burger.lactose && !burger.gluten"><span style = "font-style:italic"> Contains lactose </span></li>
                 <li v-if = "burger.lactose && burger.gluten"><span style = "font-style:italic"> Contains gluten & lactose </span></li>
@@ -103,9 +102,9 @@
             <p>Payment method: {{ payment }}</p> </br>
 
             <p>Order summary:</p>
-            <div id="orderList">
-              <div v-for="orderList in burgerArr">
-                <p>{{orderList}}</p>
+            <div id="hejhojhoj">
+              <div v-for="hej in burgerArr">
+                <p>{{hej}}</p>
               </div>
             </div>
             <br/>
