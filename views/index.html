@@ -1,154 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta charset="utf-8"/>
-      <meta name = "viewport" content= "width-device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="./css/reset.css">
-      <link rel="stylesheet" type="text/css" href="./css/style.css">
-      <script src="/socket.io/socket.io.js" defer></script>
-      <script type="text/javascript" src="js/menu.js"></script>
-      <script src="js/js_script.js" defer></script>
-      <script src="https://vuejs.org/js/vue.js"></script>
-      <script src="js/vue_script.js" defer></script>
+<head>
+  <meta charset="utf-8"/>
+  <meta name = "viewport" content= "width-device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./css/reset.css">
+  <link rel="stylesheet" type="text/css" href="./css/style.css">
+  <script src="/socket.io/socket.io.js" defer></script>
+  <script type="text/javascript" src="js/menu.js"></script>
+  <script src="js/js_script.js" defer></script>
+  <script src="https://vuejs.org/js/vue.js"></script>
+  <script src="js/vue_script.js" defer></script>
 
 
+  <title>Hamburglar Delight</title>
+</head>
 
+<body>
 
-        <title>Hamburglar Delight</title>
-    </head>
+  <header id = "test">
 
-    <body>
-
-
-<header id = "test">
-
-<img id = "headerimage" src="./img/bakgrund1.png" alt="Background">
-<h1> Welcome to Hamburglar Delight</h1>
-</header>
+    <img id = "headerimage" src="./img/bakgrund1.png" alt="Background">
+    <h1> Welcome to Hamburglar Delight</h1>
+  </header>
   <main>
-<div id="wrapper">
-    <div id = "burgers">
-      <h2> Burger selection </h2>
-      <div id = "grid" class = "grid">
-         <div v-for="burger in burgers">
-          <div id = "burger-name">  {{ burger.name }} </div>
-          <img v-bind:src = burger.img />
-          <ul>
-            <li> {{burger.ingredients}}</li>
+    <div id="wrapper">
+      <div id = "burgers">
+        <h2> Burger selection </h2>
+        <div id = "grid" class = "grid">
+          <div v-for="burger in burgers">
+            <div id = "burger-name">  {{ burger.name }} </div>
+            <img v-bind:src = burger.img />
+            <ul>
+              <li> {{burger.ingredients}}</li>
               <li>{{burger.kCal}}</<li>
                 <li v-if = "burger.gluten && !burger.lactose"><span style = "font-style:italic"> Contains gluten </span></li>
                 <li v-if = "burger.lactose && !burger.gluten"><span style = "font-style:italic"> Contains lactose </span></li>
                 <li v-if = "burger.lactose && burger.gluten"><span style = "font-style:italic"> Contains gluten & lactose </span></li>
                 <br/>
-                <input type="checkbox" v-bind:id="burger.name" v-bind:value="burger.name" v-model="burgerChoice">Choose burger</input>
-          </ul>
+                <input type="checkbox" name= "burgerCheck" v-bind:id="burger.name" :value="burger.name" >Choose burger</input> <!--v-model="burgerChoice"-->
+              </ul>
+            </div>
+          </div>
+        </div>
 
-         </div>
-    </div>
+        <section class = "customer" id= "order">
+          <div>
+            <h3> Choose your favourites<img src="./img/arrowblink.gif" width = "55em"/>  and place order! </h3>
+            <br />
+            <h4> Order details </h4>
+            <br />
+            <p>
+
+              <form v-on:submit.prevent="viewOrder">
+                <label for="name">Full name</label><br>
+                <input v-model = "name" type="text" id="name" name="fn" required="required" placeholder="First- and Last name" />
+              </p><br />
+              <p>
+                <label for="email">E-mail</label><br>
+                <input v-model = "email" type="email" id="email" name="em" required="required" placeholder="E-mail address" />
+              </p><br />
+
+              <p>
+                <label for="payment" required="required">Payment method</label><br>
+                <select v-model = "payment" id="payment" name="pay">
+                  <option selected = "selected">Klarna</option>
+                  <option>Visa/Mastercard</option>
+                  <option>Swish</option>
+                  <option>Bill</option>
+                </p>
+              </select>
+              <p>
+                <br /><label for="gender" required="required">Gender</label><br><br />
+                <input type="radio" v-model="gender" id="gender" name="gender" placeholder="Gender" value = "Male">Male</input>
+                <input type="radio" v-model="gender" id="gender" name="gender" placeholder="Gender" value = "Female">Female</input>
+                <input type="radio" v-model="gender" checked="checked" id="gender" name="gender" placeholder="Gender" value = "Undisclosed">Undisclosed</input>
+              </p> </br> </br>
+
+              <p>Adress:</p> </br>
+
+              <p> Please click your destination on the map </p>
+
+              <div class="view-box">
+                <div id="dots" v-on:click="displayOrder">
+                  <div
+                  v-for="(order, key) in orders"
+                  v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
+                  {{"T"}}
+                </div>
+              </div>
+            </div> <br/>
+            <a href="/dispatcher" target="_blank">Open dispatcher in new window</a>
+            <br/> <br/>
+
+            <button id = "order-button" type="submit" v-on:click ="addOrder"><img src="./img/deliButton.png"/> <h3>Place my order!</h3></button>
+          </form>
+
+          <div v-if="!orderHidden" class = "order-details">
+            <h5> Order confirmation</h5> <br/>
+            <p>Customer details:</p>
+            <p>Full name: {{ name }}</p>
+            <p>E-mail: {{ email }}</p>
+            <p>Payment method: {{ payment }}</p> </br>
+
+            <p>Order summary:</p>
+            <div id="orderList">
+              <div v-for="orderList in burgerArr">
+                <p>{{orderList}}</p>
+              </div>
+            </div>
+            <br/>
+          </div>
+        </div>
       </div>
 
-
-
-<section class = "customer" id= "order">
-<div>
-  <h3> Choose your favourites<img src="./img/arrowblink.gif" width = "55em"/>  and place order! </h3>
-  <br />
-
-    <h4> Order details </h4>
-
-    <br />
-  <p>
-
-  <form v-on:submit.prevent="viewOrder">
-      <label for="name">Full name</label><br>
-      <input v-model = "name" type="text" id="name" name="fn" required="required" placeholder="First- and Last name" />
-  </p><br />
-  <p>
-      <label for="email">E-mail</label><br>
-      <input v-model = "email" type="email" id="email" name="em" required="required" placeholder="E-mail address" />
-  </p><br />
-  <!-- <p>
-      <label for="street">Street</label><br>
-      <input v-model = "street" type="text" id="street" name="st" required="required" placeholder="Street name" />
-  </p><br />
-  <p>
-      <label for="house">House number</label><br>
-      <input v-model = "house" type="number" id="house" name="h" required="required" placeholder="House number" />
-  </p><br /> -->
-
-  <p>
-    <label for="payment" required="required">Payment method</label><br>
-    <select v-model = "payment" id="payment" name="pay">
-        <option selected = "selected">Klarna</option>
-        <option>Visa/Mastercard</option>
-        <option>Swish</option>
-        <option>Bill</option>
-  </p>
-</select>
-        <p>
-            <br /><label for="gender" required="required">Gender</label><br><br />
-            <input type="radio" v-model="gender" id="gender" name="gender" placeholder="Gender" value = "Male">Male</input>
-            <input type="radio" v-model="gender" id="gender" name="gender" placeholder="Gender" value = "Female">Female</input>
-            <input type="radio" v-model="gender" checked="checked" id="gender" name="gender" placeholder="Gender" value = "Undisclosed">Undisclosed</input>
-        </p> </br> </br>
-
-<p>Adress:</p> </br>
-
-<p> Please click your destination on the map </p>
-<div class="view-box">
-        <div id="dots" v-on:click="addOrder">
-            <div
-              v-for="(order, key) in orders"
-              v-bind:style="{ left: order.details.x + 'px', top: order.details.y + 'px'}">
-              {{key}}
-            </div>
-        </div>
-</div>
-
-
-<button id = "order-button" type="submit"><img src="./img/deliButton.png"/> <h3>Place my order!</h3></button>
-</form>
-
-<div v-if="!orderHidden" class = "order-details">
-<h5> Order confirmation </h5> <br/>
-  <p>Full name: {{ name }}</p> <br/>
-  <p>E-mail: {{ email }}</p> <br/>
-  <p>Payment method: {{ payment }}</p> <br/>
-  <p>Your burger choice:</p>
-  <div id="orderList">
-    <div v-for="(order, key) in orders">
-      {{ key }}: {{ order.orderItems.join(", ") }}
-    </div>
-  </div>
-
-  <br/>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
-</div>
-
-
-</section>
-
-
-<main/>
-
-<hr>
-<footer>
-<p>&copy; 2020 hamburglarDelight.com<p>
-</footer>
+    </section>
+    <main/>
+    <hr>
+    <footer>
+      <p>&copy; 2020 hamburglarDelight.com<p>
+      </footer>
     </body>
-</html>
+    </html>

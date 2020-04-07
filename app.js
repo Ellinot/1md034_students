@@ -17,7 +17,7 @@ app.set('port', (process.env.PORT || port));
 app.use(express.static(path.join(__dirname, 'public/')));
 // Serve vue from node_modules as vue/
 app.use('/vue',
-  express.static(path.join(__dirname, '/node_modules/vue/dist/')));
+express.static(path.join(__dirname, '/node_modules/vue/dist/')));
 // Serve index.html directly as root page
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'views/index.html'));
@@ -38,7 +38,7 @@ function Data() {
 }
 
 /*
-  Adds an order to to the queue
+Adds an order to to the queue
 */
 Data.prototype.addOrder = function(order) {
   // Store the order in an "associative array" with orderId as key

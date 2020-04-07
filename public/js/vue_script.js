@@ -1,14 +1,5 @@
-
-/*const vm = new Vue({
-  el: '#burgers',
-  data: {
-    burgers: food,
-  },
-})
-*/
 'use strict';
 const socket = io();
-
 
 const vm = new Vue ({
   el: '#wrapper',
@@ -20,68 +11,74 @@ const vm = new Vue ({
     house: "",
     payment: "",
     gender:"",
-    burgerChoice: [],
     orderHidden: true,
-    orders: {}
+    orders: {},
+    burgerArr: null,
+    orderId: 1,
   },
-
-
-  created: function() {
-    /* When the page is loaded, get the current orders stored on the server.
-     * (the server's code is in app.js) */
-    socket.on('initialize', function(data) {
-      this.orders = data.orders;
-    }.bind(this));
-
-    /* Whenever an addOrder is emitted by a client (every open map.html is
-     * a client), the server responds with a currentQueue message (this is
-     * defined in app.js). The message's data payload is the entire updated
-     * order object. Here we define what the client should do with it.
-     * Spoiler: We replace the current local order object with the new one. */
-    socket.on('currentQueue', function(data) {
-      this.orders = data.orders;
-    }.bind(this));
-  },
-
 
 
   methods: {
-  viewOrder: function() {
-    this.orderHidden = false;
-  },
+
+    viewOrder: function() {
+      this.orderHidden = false;
+    },
 
 
-  getNext: function() {
-    /* This function returns the next available key (order number) in
-     * the orders object, it works under the assumptions that all keys
-     * are integers. */
-    let lastOrder = Object.keys(this.orders).reduce(function(last, next) {
-      return Math.max(last, next);
-    }, 0);
-    return lastOrder + 1;
-  },
-  addOrder: function(event) {
-    /* When you click in the map, a click event object is sent as parameter
-     * to the function designated in v-on:click (i.e. this one).
-     * The click event object contains among other things different
-     * coordinates that we need when calculating where in the map the click
-     * actually happened. */
-    let offset = {
-      x: event.currentTarget.getBoundingClientRect().left,
-      y: event.currentTarget.getBoundingClientRect().top,
-    };
-    socket.emit('addOrder', {
-      orderId: this.getNext(),
-      details: {
+    getDeliveryLocation: function (burgerArr){
+      var deliveryLocations=[];
+      for(i = 0; i < burgerArr.length; i++) {
+        deliveryLocations[i+1] = burgerArr[i];
+      }
+      return deliveryLocations;
+    },
+
+/*
+    orderList: function() {
+          let burgerArr=[]
+
+          if(document.querySelector("input[name=burgerCheck]:checked") == null){
+            alert("You must choose a burger to place an order!");
+          }
+
+          else{
+            var burgers = document.getElementsByName('burgerCheck');
+            for(i = 0; i < burgers.length; i++) {
+              if(burgers[i].checked) {
+                burgerArr[burgerArr.length] = burgers[i].value
+              }
+            }
+            return burgerArr;
+          }
+          return null;
+        }, */
+
+    addOrder: function(event) {
+      this.burgerArr = orderList();
+
+      socket.emit('addOrder', {
+        orderId: this.orderId,
+        details: this.orders[0].details,
+        customerInfo: [this.name, this.email, this.payment],
+        orderItems: this.getDeliveryLocation(this.burgerArr),
+        orderInfo: [this.burgerArr[0], this.burgerArr[1], this.burgerArr[2], this.burgerArr[3], this.burgerArr[4]],
+      });
+      this.orderId += 1;
+    },
+
+
+
+    displayOrder: function(event) {
+      let offset = {
+        x: event.currentTarget.getBoundingClientRect().left,
+        y: event.currentTarget.getBoundingClientRect().top,
+      };
+      Vue.set(this.orders, 0, { details: {
         x: event.clientX - 10 - offset.x,
         y: event.clientY - 10 - offset.y,
-      },
+      }});
+    }
 
-      orderItems: ['Beans', 'Curry'],
-      orders: this.orders,
-    });
-  },
 
-}
-
-  })
+  }
+})
