@@ -36,12 +36,13 @@ h1{
   position: absolute;
 }
 
-
-/***********Burgar section************/
+/***********Burger section************/
 
 h2{
   font-size: 2.5em;
+  margin-top: 1.7em;
   margin-bottom: 1em;
+  margin-left: 0.2em;
 }
 
 h3{
@@ -113,7 +114,7 @@ h4{
 
 /***********Customer information****************/
 
-.customer{
+.orderSection{
   border: 0.092em dashed black;
   padding: 3em 4em 3em;
   font-size: 100%;
@@ -161,6 +162,7 @@ padding: 2em;
 border: 0.05em solid lightgreen;
 background-color: white;
 width: 20em;
+box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.3);
 }
 
 h5{
@@ -171,9 +173,9 @@ h5{
 /************Map view**************/
 
 .view-box {
-	width: 90%;
-	height: 50vh;
-	margin: 1em auto;
+	width: 100%;
+	height: 60vh;
+	margin: 2em auto;
 	overflow: scroll;
 	border: 1px solid rgba(0,0,0,0.4);
 	box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
@@ -200,6 +202,94 @@ h5{
 	text-align: center;
 }
 
+/*loader*/
+
+
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+}
+
+
+.loader {
+  color: #24f362;
+  font-size: 8px;
+  text-indent: -99999em;
+  margin-top: 16em;
+  margin-left: 16em;
+  margin-bottom: 15em;
+ /* position: static; */
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}
+/*
+.loader {
+  color: #24f362;
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 55px auto;
+  position: relative;
+  width: 10em;
+  height: 10em;
+  box-shadow: inset 0 0 0 1em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+}*/
+.loader:before,
+.loader:after {
+  position: absolute;
+  content: '';
+}
+.loader:before {
+  width: 5.2em;
+  height: 10.2em;
+  background: #fbfffe;
+  border-radius: 10.2em 0 0 10.2em;
+  top: -0.1em;
+  left: -0.1em;
+  -webkit-transform-origin: 5.1em 5.1em;
+  transform-origin: 5.1em 5.1em;
+  -webkit-animation: load2 2s infinite ease 1.5s;
+  animation: load2 2s infinite ease 1.5s;
+}
+.loader:after {
+  width: 5.2em;
+  height: 10.2em;
+  background: #fbfffe;
+  border-radius: 0 10.2em 10.2em 0;
+  top: -0.1em;
+  left: 4.9em;
+  -webkit-transform-origin: 0.1em 5.1em;
+  transform-origin: 0.1em 5.1em;
+  -webkit-animation: load2 2s infinite ease;
+  animation: load2 2s infinite ease;
+}
+@-webkit-keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes load2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 
 /************Responsive design*************/
 

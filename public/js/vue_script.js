@@ -12,6 +12,8 @@ const vm = new Vue ({
     payment: "",
     gender:"",
     orderHidden: true,
+    showButton: true,
+    loading: false,
     orders: {},
     burgerArr: [],
     orderId: 1,
@@ -20,10 +22,15 @@ const vm = new Vue ({
 
   methods: {
 
-    viewOrder: function() {
+     viewOrder: function() {
       this.orderHidden = false;
     },
 
+
+    hide: function() {
+      this.orderHidden = true;
+      this.showButton = true;
+    },
 
     getDeliveryLocation: function (burgerArr){
       var deliveryLocations=[];
@@ -48,6 +55,16 @@ const vm = new Vue ({
             this.burgerArr[this.burgerArr.length] = burgers[i].value
           }
         }
+
+        this.showButton = false;
+        this.loading = true;
+
+         setTimeout(() =>{
+           this.orderHidden = false;
+           this.loading = false;
+       }, 2000);
+
+
         socket.emit('addOrder', {
           orderId: this.orderId,
           details: this.orders[0].details,
