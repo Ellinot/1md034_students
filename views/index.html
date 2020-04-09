@@ -36,7 +36,7 @@
                 <li v-if = "burger.lactose && !burger.gluten"><span style = "font-style:italic"> Contains lactose </span></li>
                 <li v-if = "burger.lactose && burger.gluten"><span style = "font-style:italic"> Contains gluten & lactose </span></li>
                 <br/>
-                <input type="checkbox" name= "burgerCheck" v-bind:id="burger.name" :value="burger.name" >Choose burger</input> <!--v-model="burgerChoice"-->
+                <input type="checkbox" name= "checkBurger" v-bind:id="burger.name" :value="burger.name" >Choose burger</input>
               </ul>
             </div>
           </div>
@@ -95,12 +95,10 @@
           </form>
 
 
-          <div class= "loader" v-if= "loading">
-            <p>VISAR LADDNING</p>
-          </div>
+          <div class= "loader" v-if= "loading"></div>
           <div v-if="!orderHidden" class = "order-details">
 
-            <h5> Order confirmation</h5> <br/>
+            <h5>Order confirmation</h5> <br/>
             <p>Customer details:</p>
             <p>Full name: {{ name }}</p>
             <p>E-mail: {{ email }}</p>

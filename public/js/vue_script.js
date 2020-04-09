@@ -32,6 +32,7 @@ const vm = new Vue ({
       this.showButton = true;
     },
 
+
     getDeliveryLocation: function (burgerArr){
       var deliveryLocations=[];
       for(var i = 0; i < burgerArr.length; i++) {
@@ -42,13 +43,12 @@ const vm = new Vue ({
 
 
     addOrder: function(event) {
-
-      if(document.querySelector("input[name=burgerCheck]:checked") == null){
+      if(document.querySelector("input[name=checkBurger]:checked") == null){
         alert("You must choose a burger to place an order!");
       }
 
       else{
-        var burgers = document.getElementsByName('burgerCheck');
+        var burgers = document.getElementsByName('checkBurger');
         this.burgerArr = [];
         for(var i = 0; i < burgers.length; i++) {
           if(burgers[i].checked) {
